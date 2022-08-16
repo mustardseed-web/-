@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  </head>
+
+  <body>
+    <div id="app">
+      <p>商品名: {{ apple.name }}</p>
+      <p>1個あたりの重さ: {{ apple.weight | decimalFormat }}g</p>
+      <p>個数: {{ apple.num }}個</p>
+      <p>重さの合計: {{ sumWeight | decimalFormat }}g</p>
+      <p v-bind:style="styleData">{{ apple.name }}</p>
+    </div>
+
+    <script>
+      const vm = new Vue({
+        el: "#app",
+        data: {
+          apple: {
+            name: "リンゴ",
+            weight: 295.6467,
+            num: 2,
+            styleData: { color: "red" },
+          },
+        },
+        computed: {
+          sumWeight: function () {
+            return this.apple.weight * this.apple.num;
+          },
+        },
+        filters: {
+          decimalFormat: function (value) {
+            return value.toFixed(2);
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
