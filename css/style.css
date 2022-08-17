@@ -1,0 +1,49 @@
+ul {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+.tabs {
+  overflow: hidden;
+}
+.tabs li,
+.tabs label {
+  float: left;
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.tabs li:not(:first-child),
+.tabs label:not(:first-of-type) {
+  border-left: none;
+}
+.tabs li.active,
+.tabs :checked + label {
+  background-color: #000;
+  border-color: #000;
+  color: #fff;
+  cursor: auto;
+}
+.contents {
+  overflow: hidden;
+  margin-top: -1px;
+}
+.contents li {
+  width: 320px;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+.jquery .contents li {
+  display: none;
+}
+.jquery .contents li.active {
+  display: block;
+}
+
+.vue_radio input {
+  display: none;
+}
